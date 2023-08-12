@@ -6,7 +6,7 @@ export default function Footer() {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         bgcolor: '#ffffff',
         borderTop: '1px solid #dedede87',
         minHeight: '60px'
