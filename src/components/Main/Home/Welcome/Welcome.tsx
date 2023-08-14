@@ -67,7 +67,7 @@ const Welcome: React.FC = () => {
               }
             }}
           >
-            A personal website of P.D.Li
+            A personal website of PDLi
           </Typography>
         </Box>
       </Box>
