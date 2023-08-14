@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from '@mui/material'
 import LinkCard from './LinkCard'
 import linkObjs from './linkObjs'
 import React from 'react'
+import NextPage from '../NextPage'
 
 export default function Links() {
   return (
@@ -11,8 +12,8 @@ export default function Links() {
       sx={{
         width: '100%',
         minHeight: {
-          xs: 'calc(100vh - 120px)',
-          sm: 'calc(100vh - 130px)'
+          xs: 'calc(100vh - 60px)',
+          sm: 'calc(100vh - 70px)'
         }
       }}
     >
@@ -20,14 +21,14 @@ export default function Links() {
         display='flex'
         alignItems='center'
         flexDirection='column'
-        mt={{ md: 8,xs:2 }}
+        mt={{ md: 8, xs: 2 }}
       >
         <Typography
           variant='h1'
           fontWeight={400}
           fontFamily="'Candal',Helvetica,Arial,Lucida,sans-serif"
-          fontSize={{ md: 96, xs: 45 }}
-          mb={{ md: 4, xs: 3 }}
+          fontSize={{ md: 120, xs: 45 }}
+          mb={{ md: 6, xs: 3 }}
           sx={{
             background: 'linear-gradient(to right, #6e45e2 0%, #42d4f5 100%)',
             backgroundClip: 'text',
@@ -36,7 +37,7 @@ export default function Links() {
         >
           LINKS
         </Typography>
-        <Grid container spacing={{md:6,xs:2}} mb={8}>
+        <Grid container spacing={{ md: 6, xs: 2 }} mb={8}>
           {linkObjs.map(obj => (
             <React.Fragment key={obj.title}>
               <Grid item xs={1.5} md={0} display={{ xs: 'flex', md: 'none' }} />
@@ -52,6 +53,7 @@ export default function Links() {
             </React.Fragment>
           ))}
         </Grid>
+        <NextPage nextId='comments' />
       </Box>
     </Box>
   )

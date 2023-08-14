@@ -52,6 +52,7 @@ const Header: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <AppBar
+        id='header'
         elevation={scrolled ? 1 : 0}
         sx={{
           position:'sticky',

@@ -9,10 +9,14 @@ export default function Footer() {
         justifyContent: 'center',
         bgcolor: '#ffffff',
         borderTop: '1px solid #dedede87',
-        minHeight: '60px'
+        minHeight: { md: '60px', xs: '30px' }
       }}
     >
-      <Typography sx={{ color: 'black' }} align='center'>
+      <Typography
+        sx={{ color: 'black' }}
+        align='center'
+        fontSize={{ md: 16, xs: 12 }}
+      >
         <strong>PDLi</strong> &copy; {new Date().getFullYear()} -{' '}
         <Link href='https://beian.miit.gov.cn/' underline='hover'>
           鲁ICP备2023011142号
