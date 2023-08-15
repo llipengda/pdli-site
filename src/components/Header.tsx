@@ -1,5 +1,11 @@
 import * as React from 'react'
-import { Link, ThemeProvider, Tooltip, createTheme } from '@mui/material'
+import {
+  Link,
+  ListItemIcon,
+  ThemeProvider,
+  Tooltip,
+  createTheme
+} from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -14,10 +20,13 @@ import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import { Avatar } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+
 const pages = ['Home', 'Services']
 
 const Header: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<HTMLElement | null>(null)
+  const [anchorElBtnNav, setAnchorElBtnNav] =
+    React.useState<HTMLElement | null>(null)
   const [scrolled, setScrolled] = React.useState(false)
 
   const navigate = useNavigate()
@@ -36,6 +45,14 @@ const Header: React.FC = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
+  }
+
+  const handleOpenNavBtnMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElBtnNav(event.currentTarget)
+  }
+
+  const handleCloseNavBtnMenu = () => {
+    setAnchorElBtnNav(null)
   }
 
   const handleNavigate = (page: string) => (event: React.MouseEvent) => {
@@ -75,7 +92,6 @@ const Header: React.FC = () => {
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size='large'
-                aria-label='account of current user'
                 aria-controls='menu-appbar'
                 aria-haspopup='true'
                 onClick={handleOpenNavMenu}
@@ -193,22 +209,67 @@ const Header: React.FC = () => {
               ))}
             </Box>
             {/* 移动端--图标 */}
-            <Avatar
-              sx={{
-                mr: 2,
-                width: 35,
-                height: 35,
-                '&:hover': {
-                  cursor: 'pointer'
-                },
-                display: {
-                  md: 'none',
-                  xs: 'flex'
-                }
-              }}
-              src='/favicon.ico'
-              variant='rounded'
-            />
+            <Box>
+              <Avatar
+                sx={{
+                  mr: 2,
+                  width: 35,
+                  height: 35,
+                  '&:hover': {
+                    cursor: 'pointer'
+                  },
+                  display: {
+                    md: 'none',
+                    xs: 'flex'
+                  }
+                }}
+                src='/favicon.ico'
+                variant='rounded'
+                aria-controls='menu-iconbtns'
+                aria-haspopup='true'
+                onClick={handleOpenNavBtnMenu}
+              />
+              <Menu
+                id='menu-iconbtns'
+                open={Boolean(anchorElBtnNav)}
+                anchorEl={anchorElBtnNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right'
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right'
+                }}
+                onClose={handleCloseNavBtnMenu}
+                sx={{ display: { xs: 'block', md: 'none' } }}
+              >
+                <MenuItem dense>
+                  <Link
+                    href='https://github.com/llipengda/pdli-site'
+                    target='_blank'
+                    onClick={handleCloseNavBtnMenu}
+                  >
+                    <ListItemIcon>
+                      <GitHubIcon fontSize='small' sx={{ mr: 1 }} />
+                      <span>GitHub</span>
+                    </ListItemIcon>
+                  </Link>
+                </MenuItem>
+                <MenuItem dense>
+                  <Link
+                    href='mailto:lipengda2@outlook.com'
+                    onClick={handleCloseNavBtnMenu}
+                  >
+                    <ListItemIcon>
+                      <EmailIcon fontSize='small' sx={{ mr: 1 }} />
+                      <span>Email</span>
+                    </ListItemIcon>
+                  </Link>
+                </MenuItem>
+              </Menu>
+            </Box>
             {/* 图标按钮 */}
             <Box
               display={{ md: 'flex', xs: 'none' }}
