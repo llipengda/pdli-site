@@ -13,7 +13,7 @@ export default function Services() {
         }
       }}
     >
-      <Box mt={{ md: 10, xs: 5 }} display='flex' justifyContent='center'>
+      <Box mt={{ md: 8, xs: 5 }} display='flex' justifyContent='center'>
           <Typography
             variant='h1'
             fontWeight={400}

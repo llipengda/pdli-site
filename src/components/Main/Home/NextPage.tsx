@@ -31,7 +31,8 @@ export default function NextPage({ nextId }: { nextId: string }) {
         alignSelf: 'center',
         transform: 'rotate(90deg)',
         '&:hover': {
-          cursor: 'pointer'
+          cursor: 'pointer',
+          color: 'primary.main'
         }
       }}
       onClick={() =>
