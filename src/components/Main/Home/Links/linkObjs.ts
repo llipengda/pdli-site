@@ -1,6 +1,6 @@
-import xiaowu from '../../../../assets/images/xiaowu.jpg'
-import genshin from '../../../../assets/images/genshin.jpg'
-import starrail from '../../../../assets/images/starrail.jpg'
+import xiaowu from '../../../../assets/images/home/xiaowu.jpg'
+import genshin from '../../../../assets/images/home/genshin.jpg'
+import starrail from '../../../../assets/images/home/starrail.jpg'
 
 export default [
   {

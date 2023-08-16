@@ -7,7 +7,7 @@ import {
 import { Box, Card, CardMedia, Grid, Typography, useTheme } from '@mui/material'
 import { animated, useSpring } from 'react-spring'
 import Type from './Type'
-import selfie from '../../../../assets/images/selfie.png'
+import selfie from '../../../../assets/images/home/selfie.png'
 
 export default function FlexTest({ show }: { show: boolean }) {
   const theme = useTheme()

@@ -1,6 +1,6 @@
 import { Button, Card, CardMedia, Typography } from '@mui/material'
 import { animated, useSpring } from 'react-spring'
-import ECNUImage from '../../../../assets/images/ECNU_QUANTUM_THINKING_60406.jpg'
+import ECNUImage from '../../../../assets/images/home/ECNU_QUANTUM_THINKING_60406.jpg'
 
 export default function QuantumCard({ show }: { show: boolean }) {
   const animation = useSpring({
