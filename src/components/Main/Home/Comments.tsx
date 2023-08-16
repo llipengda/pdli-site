@@ -18,7 +18,7 @@ export default function Comments() {
           variant='h1'
           fontWeight={400}
           fontFamily="'Candal',Helvetica,Arial,Lucida,sans-serif"
-          fontSize={{ md: 60, xs: 35 }}
+          fontSize={{ md: 62, xs: 35 }}
           mt={{ md: 6, xs: 6 }}
           mb={{ md: 6, xs: 3 }}
           sx={{
@@ -29,7 +29,7 @@ export default function Comments() {
           align='center'
           width={{ md: '100%', xs: '80%' }}
         >
-          LEAVE YOUR COMMENTS HERE...
+          <i>LEAVE YOUR COMMENTS HERE...</i>
         </Typography>
         <Box width={{ md: '100%', xs: '80%' }} mb={4}>
           <Giscus

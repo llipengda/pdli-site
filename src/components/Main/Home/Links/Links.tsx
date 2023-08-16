@@ -35,7 +35,7 @@ export default function Links() {
             color: 'transparent'
           }}
         >
-          LINKS
+          <i>LINKS&nbsp;</i>
         </Typography>
         <Grid container spacing={{ md: 6, xs: 2 }} mb={8}>
           {linkObjs.map(obj => (
