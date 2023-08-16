@@ -27,7 +27,7 @@ const Type: React.FC = () => {
         autoStart: true,
         strings: time,
         loop: true,
-        deleteSpeed: 45
+        deleteSpeed: 500 / time.length
       }}
     />
   )
