@@ -49,12 +49,15 @@ const Header: React.FC = () => {
     setAnchorElBtnNav(null)
   }
 
-  const handleNavigate = (page: string) => (event: React.MouseEvent) => {
+  const handleNavigate = (page: string, isNavMenu = false) => (event: React.MouseEvent) => {
     event.preventDefault()
     if (page === '/') {
       navigate('/')
     } else {
       navigate(`./${page.toLowerCase()}`)
+    }
+    if (isNavMenu) {
+      handleCloseNavMenu()
     }
   }
 
@@ -101,13 +104,7 @@ const Header: React.FC = () => {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map(page => (
-                <MenuItem
-                  key={page}
-                  onClick={() => {
-                    handleNavigate(page)
-                    handleCloseNavMenu()
-                  }}
-                >
+                <MenuItem key={page} onClick={handleNavigate(page, true)}>
                   <Typography textAlign='center'>{page}</Typography>
                 </MenuItem>
               ))}
