@@ -57,6 +57,7 @@ const DailyQuote: React.FC = () => {
         maxHeight: { xs: 140, md: 'none' },
         mb: 8
       }}
+      elevation={2}
     >
       <Box
         display='flex'

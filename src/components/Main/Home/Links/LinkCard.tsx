@@ -36,6 +36,7 @@ export default function LinkCard({
 
   return (
     <Card
+      elevation={3}
       style={{ transform: props.xys.to(trans) as unknown as string }}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={() => set({ xys: [0, 0, 1] })}

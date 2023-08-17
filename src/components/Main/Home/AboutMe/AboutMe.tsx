@@ -22,10 +22,7 @@ const AboutMe: React.FC = () => {
       position='relative'
       sx={{
         width: '100%',
-        minHeight: {
-          xs: 'calc(100vh - 60px)',
-          sm: 'calc(100vh - 70px)'
-        },
+        minHeight: 'calc(100vh - 70px)',
         overflowX: 'hidden'
       }}
     >
@@ -35,7 +32,7 @@ const AboutMe: React.FC = () => {
           alignContent='center'
           alignItems='center'
           rowGap={4}
-          mt={{ md: 15, xs: 0 }}
+          mt={{ md: 12, xs: 0 }}
           p={{ xs: 2, md: 0 }}
         >
           <Grid item xs={12} md={7}>

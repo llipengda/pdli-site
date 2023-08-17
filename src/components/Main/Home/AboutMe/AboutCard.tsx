@@ -18,7 +18,7 @@ export default function FlexTest({ show }: { show: boolean }) {
 
   return (
     <animated.div style={animation}>
-      <Card>
+      <Card elevation={3}>
         <Box
           display='flex'
           flexDirection='column'

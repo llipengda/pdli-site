@@ -9,7 +9,7 @@ export default function QuantumCard({ show }: { show: boolean }) {
 
   return (
     <animated.div style={animation}>
-      <Card>
+      <Card elevation={3}>
         <CardMedia
           image={ECNUImage}
           sx={{

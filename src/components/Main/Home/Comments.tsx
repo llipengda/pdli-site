@@ -8,7 +8,7 @@ export default function Comments() {
       sx={{
         width: '100%',
         minHeight: {
-          xs: 'calc(100vh - 120px)',
+          xs: 'calc(100vh - 130px)',
           sm: 'calc(100vh - 100px)'
         }
       }}

@@ -12,10 +12,7 @@ const Welcome: React.FC = () => {
       flexDirection='column'
       sx={{
         width: '100%',
-        minHeight: {
-          xs: 'calc(100vh - 60px)',
-          sm: 'calc(100vh - 70px)'
-        }
+        minHeight: 'calc(100vh - 70px)'
       }}
     >
       <Box
