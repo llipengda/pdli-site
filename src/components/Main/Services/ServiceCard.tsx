@@ -5,10 +5,12 @@ import {
   Card,
   CardContent,
   CardMedia,
+  CircularProgress,
   Link,
   Tooltip,
   Typography
 } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 import { animated, useSpring } from 'react-spring'
 import CircleIcon from '@mui/icons-material/Circle'
 
@@ -46,8 +48,8 @@ export default function ServiceCard({
 
   return (
     <Tooltip
-      title={`${isRunning ? 'Running' : 'Stopped'}${
-        flipped ? '' : ' - click for detail'
+      title={`${status.toLocaleUpperCase()}${
+        flipped ? '' : ' - CLICK FOR DETAIL'
       }`}
       placement='top'
     >
@@ -86,7 +88,13 @@ export default function ServiceCard({
               height: 40
             }}
           >
-            <CircleIcon sx={{ mr: 1.5, color: isRunning ? 'green' : 'red' }} />
+            {isLoading ? (
+              <CircularProgress size='2rem' color='warning' sx={{ mr: 1.5 }} />
+            ) : (
+              <CircleIcon
+                sx={{ mr: 1.5, color: isRunning ? 'green' : 'red' }}
+              />
+            )}
             <Typography variant='h3' fontSize={40} fontFamily='Kanit'>
               {name.toUpperCase()}
             </Typography>
@@ -124,12 +132,27 @@ export default function ServiceCard({
               variant='h4'
               align='center'
               fontFamily='Kanit'
-              sx={{ color: isRunning ? 'green' : 'red' }}
+              display='flex'
+              alignItems='center'
+              color={isLoading ? '#ed6e05' : isRunning ? 'green' : 'red'}
             >
-              <CircleIcon
-                sx={{ mr: 1.5, color: isRunning ? 'green' : 'red' }}
-              />
-              {isRunning ? 'RUNNING' : 'STOPPED'}
+              {isLoading ? (
+                <>
+                  <CircularProgress
+                    size='2rem'
+                    color='warning'
+                    sx={{ mr: 1.5 }}
+                  />
+                  LOADING
+                </>
+              ) : (
+                <>
+                  <CircleIcon
+                    sx={{ mr: 1.5, color: isRunning ? 'green' : 'red' }}
+                  />
+                  {isRunning ? 'RUNNING' : 'STOPPED'}
+                </>
+              )}
             </Typography>
             <Box mt={4}>
               {isRunning && visitBtn && (
@@ -145,14 +168,16 @@ export default function ServiceCard({
                 </Link>
               )}
               {detailBtn && (
-                <Button
-                  variant='outlined'
-                  size='large'
-                  color={isRunning ? 'success' : 'error'}
-                  sx={{ ml: 1 }}
-                >
-                  DETAIL
-                </Button>
+                <RouterLink to={detailUrl as string}>
+                  <Button
+                    variant='outlined'
+                    size='large'
+                    color={isRunning ? 'success' : 'error'}
+                    sx={{ ml: 1 }}
+                  >
+                    DETAIL
+                  </Button>
+                </RouterLink>
               )}
             </Box>
           </CardContent>
