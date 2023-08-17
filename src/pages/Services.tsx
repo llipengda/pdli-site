@@ -74,27 +74,16 @@ export default function Services() {
           </Typography>
         </Box>
         <Grid container maxWidth='lg' rowGap={5}>
-          <Grid item md={6}>
-            <ServiceCard status={serviceStatus.frps} {...ServiceObjs.frps} />
-          </Grid>
-          <Grid item md={6}>
-            <ServiceCard
-              status={serviceStatus.onedrive}
-              {...ServiceObjs.onedrive}
-            />
-          </Grid>
-          <Grid item md={6}>
-            <ServiceCard
-              status={serviceStatus.minecraft}
-              {...ServiceObjs.minecraft}
-            />
-          </Grid>
-          <Grid item md={6}>
-            <ServiceCard
-              status={serviceStatus.codeServer}
-              {...ServiceObjs.codeServer}
-            />
-          </Grid>
+          {Object.keys(serviceStatus).map(service => (
+            <Grid item md={6} key={service}>
+              <ServiceCard
+                //@ts-ignore
+                status={serviceStatus[service]}
+                //@ts-ignore
+                {...ServiceObjs[service]}
+              />
+            </Grid>
+          ))}
         </Grid>
       </Box>
     </Box>
