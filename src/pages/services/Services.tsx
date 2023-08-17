@@ -17,6 +17,7 @@ export default function Services() {
     >
       <Box
         mt={{ md: 6, xs: 5 }}
+        mb={{ md: 6, xs: 5 }}
         display='flex'
         justifyContent='center'
         flexDirection='row'
@@ -33,7 +34,6 @@ export default function Services() {
           }}
         >
           <Typography
-            mt={5}
             mb={5}
             variant='h1'
             fontWeight={400}
