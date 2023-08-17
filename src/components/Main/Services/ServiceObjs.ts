@@ -29,6 +29,6 @@ export default {
     visitBtn: true,
     visitUrl: 'https://pdli.site:8081',
     detailBtn: true,
-    detailUrl: '/services/minecraft'
+    detailUrl: '/services/code-server'
   }
 }
