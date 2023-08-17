@@ -156,7 +156,7 @@ export default function ServiceCard({
             </Typography>
             <Box mt={4}>
               {isRunning && visitBtn && (
-                <Link component='a' href={visitUrl} target='_blank'>
+                <Link component='a' href={visitUrl} target='_blank' sx={{display: flipped ? 'inline' : 'none'}}>
                   <Button
                     variant='outlined'
                     size='large'
@@ -168,7 +168,7 @@ export default function ServiceCard({
                 </Link>
               )}
               {detailBtn && (
-                <RouterLink to={detailUrl as string}>
+                <RouterLink to={detailUrl as string} style={{display: flipped ? 'inline' : 'none'}}>
                   <Button
                     variant='outlined'
                     size='large'
