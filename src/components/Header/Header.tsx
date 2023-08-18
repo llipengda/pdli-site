@@ -78,8 +78,8 @@ const Header: React.FC = () => {
             component='a'
             href='/'
             variant='h5'
-            fontSize={{ lg: 22, xs: 24 }}
-            flexGrow={{ xs: 0.5, lg: 0.03 }}
+            fontSize={{ md: 22, xs: 24 }}
+            flexGrow={{ xs: 0.5, md: 0.03 }}
             noWrap
             sx={{
               fontFamily: 'consolas',
