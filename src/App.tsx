@@ -1,6 +1,6 @@
 import React from 'react'
 import Main from './components/Main/Main'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Footer from './components/Footer'
 import { Box } from '@mui/material'
 import './App.css'
