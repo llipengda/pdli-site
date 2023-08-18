@@ -42,7 +42,7 @@ export default function Services() {
               variant='h1'
               fontWeight={400}
               fontFamily="'Candal',Helvetica,Arial,Lucida,sans-serif"
-              fontSize={{ md: 80, xs: 55 }}
+              fontSize={{ md: 80, xs: 60 }}
               sx={{
                 background:
                   'linear-gradient(to right, #6e45e2 0%, #42d4f5 100%)',

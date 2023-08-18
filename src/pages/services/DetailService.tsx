@@ -266,19 +266,20 @@ export default function DetailService({ name }: { name: string }) {
       </Typography>
       <Paper
         sx={{
-          width: { md: '95%', xs: '88%' },
+          width: { md: '95%', xs: '90%' },
           mt: { md: 4, xs: 2 },
           p: { md: 2, xs: 1 },
-          height: { md: 300, xs: 150 },
-          overflow: 'auto'
+          maxHeight: { md: 300, xs: 260 },
+          overflowY: 'auto'
         }}
         ref={logRef}
       >
         <Typography
           display='flex'
-          variant='body1'
+          variant='body2'
           fontFamily='Menlo, Monaco, Consolas, "Ubuntu Mono", "DejaVu Sans Mono", "Liberation Mono", "Fira Mono", "微软雅黑", monospace'
           whiteSpace='pre-line'
+          sx={{overflowWrap: 'anywhere'}}
         >
           {log}
         </Typography>
