@@ -10,9 +10,11 @@ import {
 } from '@mui/material'
 import CircleIcon from '@mui/icons-material/Circle'
 import SendIcon from '@mui/icons-material/Send'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import * as SignalR from '@microsoft/signalr'
 import server, { hub } from '../../server'
+import Login from '../../components/Main/Services/Login'
+import AlertSnackbar from '../../components/Main/Services/AlertSnackbar'
 
 const postedCmd = { index: 0, data: [] } as {
   index: number
@@ -23,6 +25,9 @@ export default function DetailService({ name }: { name: string }) {
   const [status, setStatus] = useState('loading')
   const [log, setLog] = useState('')
   const [inputCmd, setInputCmd] = useState('')
+  const [login, setLogin] = useState(false)
+  const [snackbar, setSnackbar] = useState(false)
+  const [snackbarText, setSnackbarText] = useState('')
 
   const connection = new SignalR.HubConnectionBuilder()
     .withUrl(hub)
@@ -78,51 +83,80 @@ export default function DetailService({ name }: { name: string }) {
   const getLog = () => {
     axios.get(`${server}/${name.replace('-', '')}/GetLog`).then(
       response => setLog(response.data.log),
-      error => {}
+      error => console.log(error)
     )
   }
 
   const handleStart = () => {
     setLog('')
     axios
-      .post(`${server}/${name.replace('-', '')}/Start`)
+      .post(`${server}/${name.replace('-', '')}/Start`, null, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      })
       .then(
         response => {
           if (!response.data.success) {
             console.log(response.data.err)
+            setSnackbarText('Started!')
+            setSnackbar(true)
           }
         },
-        error => console.log(error)
+        error => {
+          if (error instanceof AxiosError && error.response?.status == 401) {
+            setLogin(true)
+          } else {
+            console.log(error)
+          }
+        }
       )
       .finally(() => getStatus())
   }
 
   const handleStop = () => {
+    console.log(localStorage.getItem('token'))
     axios
-      .post(`${server}/${name.replace('-', '')}/Stop`)
+      .post(`${server}/${name.replace('-', '')}/Stop`, null, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      })
       .then(
         response => {
           if (!response.data.success) {
             console.log(response.data.err)
           }
+          setSnackbarText('Stopped!')
+          setSnackbar(true)
         },
-        error => console.log(error)
+        error => {
+          if (error instanceof AxiosError && error.response?.status == 401) {
+            setLogin(true)
+          } else {
+            console.log(error)
+          }
+        }
       )
       .finally(() => getStatus())
   }
 
   const handlePostCmd = (cmd: string) => () => {
-    setInputCmd('')
     if (cmd == '') {
       return
     }
-    postedCmd.index = postedCmd.data.push(cmd)
-    console.log(postedCmd)
     axios
-      .post(`${server}/${name.replace('-', '')}/PostCmd?cmd=${cmd}`)
+      .post(`${server}/${name.replace('-', '')}/PostCmd?cmd=${cmd}`, null, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      })
       .then(
-        response => {},
-        error => console.log(error)
+        response => {
+          setInputCmd('')
+          postedCmd.index = postedCmd.data.push(cmd)
+        },
+        error => {
+          if (error instanceof AxiosError && error.response?.status == 401) {
+            setLogin(true)
+          } else {
+            console.log(error)
+          }
+        }
       )
       .finally(() => getLog())
   }
@@ -149,6 +183,11 @@ export default function DetailService({ name }: { name: string }) {
     }
   }
 
+  const successfulLogin = () => {
+    setSnackbarText('Authenticated!')
+    setSnackbar(true)
+  }
+
   const isLoading = status.toLowerCase() == 'loading'
   const isRunning = status.toLowerCase() == 'running'
 
@@ -163,6 +202,16 @@ export default function DetailService({ name }: { name: string }) {
       alignItems={{ md: 'flex-start', xs: 'center' }}
       alignContent='flex-start'
     >
+      <Login
+        open={login}
+        onClose={() => setLogin(false)}
+        onSuccessfulLogin={successfulLogin}
+      />
+      <AlertSnackbar
+        open={snackbar}
+        onClose={() => setSnackbar(false)}
+        text={snackbarText}
+      />
       <Typography variant='h2' fontSize={{ md: 60, xs: 50 }} fontFamily='Kanit'>
         {name.toUpperCase()}
       </Typography>
@@ -238,6 +287,7 @@ export default function DetailService({ name }: { name: string }) {
         <Grid item md={11}>
           <TextField
             autoComplete='off'
+            inputProps={{ autoComplete: 'off' }}
             value={inputCmd}
             fullWidth
             label='Command'
