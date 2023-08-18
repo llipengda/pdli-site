@@ -270,6 +270,7 @@ export default function DetailService({ name }: { name: string }) {
           mt: { md: 4, xs: 2 },
           p: { md: 2, xs: 1 },
           maxHeight: { md: 300, xs: 260 },
+          minHeight: { md: 300, xs: 150 },
           overflowY: 'auto'
         }}
         ref={logRef}
