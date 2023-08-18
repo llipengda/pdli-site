@@ -16,8 +16,8 @@ export default function Services() {
       }}
     >
       <Box
-        mt={{ md: 6, xs: 0 }}
-        mb={{ md: 6, xs: 1 }}
+        mt={{ md: 2.5, xs: 0 }}
+        mb={{ md: 2.5, xs: 1 }}
         display='flex'
         justifyContent='center'
         flexDirection={{ md: 'row', xs: 'column' }}
