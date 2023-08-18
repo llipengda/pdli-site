@@ -18,7 +18,7 @@ export default function Links() {
         display='flex'
         alignItems='center'
         flexDirection='column'
-        mt={{ md: 8, xs: 2 }}
+        mt={{ md: 4, xs: 2 }}
       >
         <Typography
           variant='h1'

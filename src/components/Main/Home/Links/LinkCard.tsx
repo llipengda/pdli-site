@@ -45,7 +45,7 @@ export default function LinkCard({
       <CardMedia
         image={image}
         sx={{
-          height: { lg: 280, xs: 160 }
+          height: { lg: 260, xs: 160 }
         }}
       />
       <Box

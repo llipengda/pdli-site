@@ -32,7 +32,7 @@ const AboutMe: React.FC = () => {
           alignContent='center'
           alignItems='center'
           rowGap={4}
-          mt={{ md: 12, xs: 0 }}
+          mt={{ md: 6, xs: 0 }}
           p={{ xs: 2, md: 0 }}
         >
           <Grid item xs={12} md={7}>

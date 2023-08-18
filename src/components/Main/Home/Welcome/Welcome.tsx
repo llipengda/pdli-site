@@ -20,7 +20,7 @@ const Welcome: React.FC = () => {
           width: '100%',
           justifyContent: 'center',
           mt: {
-            md: 20,
+            md: 15,
             xs: 4
           },
           alignItems: 'center',
