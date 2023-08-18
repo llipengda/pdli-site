@@ -1,3 +1,3 @@
-const server = 'https://localhost:7090/api'
-export const hub = 'https://localhost:7090/loghub'
+const server = 'https://pdli.site/api'
+export const hub = 'https://pdli.site/loghub'
 export default server
