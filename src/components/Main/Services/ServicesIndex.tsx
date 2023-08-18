@@ -21,7 +21,7 @@ export default function ServicesIndex() {
         setServiceStatus(s => ({ ...s, [key]: 'running' }))
         return
       }
-      axios.get(`${server}/ServiceStatus/${value.name}`).then(
+      axios.get(`${server}/ServiceStatus/Get?name=${value.name}`).then(
         response => {
           if (response.data.success == true) {
             setServiceStatus(s => ({

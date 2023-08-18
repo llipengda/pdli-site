@@ -32,7 +32,6 @@ export default function DetailService({ name }: { name: string }) {
   connection.on(
     'receiveLog',
     ({ service, message }: { service: string; message: string }) => {
-      console.log('RECEIVED', service, message)
       if (service.toLowerCase() === name.toLowerCase()) {
         setLog(log => log + message + '\n')
       }
@@ -70,7 +69,7 @@ export default function DetailService({ name }: { name: string }) {
   const logRef = useRef<HTMLDivElement>(null)
 
   const getStatus = () => {
-    axios.get(`${server}/ServiceStatus/${name}`).then(
+    axios.get(`${server}/ServiceStatus/Get?name=${name}`).then(
       response => setStatus(response.data.status),
       error => console.log(error)
     )
