@@ -32,7 +32,7 @@ export default function DetailService({ name }: { name: string }) {
   connection.on(
     'receiveLog',
     ({ service, message }: { service: string; message: string }) => {
-      console.log("RECEIVED", service, message)
+      console.log('RECEIVED', service, message)
       if (service.toLowerCase() === name.toLowerCase()) {
         setLog(log => log + message + '\n')
       }
@@ -158,13 +158,13 @@ export default function DetailService({ name }: { name: string }) {
       display='flex'
       flexDirection='column'
       width='100%'
-      p={5}
-      pt={7}
+      p={{ md: 5, xs: 2 }}
+      pt={{ md: 7, xs: 2 }}
       alignSelf='flex-start'
-      alignItems='flex-start'
+      alignItems={{ md: 'flex-start', xs: 'center' }}
       alignContent='flex-start'
     >
-      <Typography variant='h2' fontFamily='Kanit'>
+      <Typography variant='h2' fontSize={{ md: 60, xs: 50 }} fontFamily='Kanit'>
         {name.toUpperCase()}
       </Typography>
       <Typography
@@ -173,11 +173,21 @@ export default function DetailService({ name }: { name: string }) {
         fontFamily='Kanit'
         display='flex'
         alignItems='center'
+        fontSize={{ md: 48, xs: 32 }}
         color={isLoading ? '#ed6e05' : isRunning ? 'green' : 'red'}
       >
         {isLoading ? (
           <>
-            <CircularProgress size='3rem' color='warning' sx={{ mr: 1.5 }} />
+            <CircularProgress
+              size='3rem'
+              color='warning'
+              sx={{ mr: 1.5, display: { md: 'block', xs: 'none' } }}
+            />
+            <CircularProgress
+              size='1.5rem'
+              color='warning'
+              sx={{ mr: 1.5, display: { xs: 'block', md: 'none' } }}
+            />
             LOADING
           </>
         ) : (
@@ -208,10 +218,10 @@ export default function DetailService({ name }: { name: string }) {
       </Typography>
       <Paper
         sx={{
-          width: '95%',
-          mt: 4,
-          p: 2,
-          height: 300,
+          width: { md: '95%', xs: '88%' },
+          mt: { md: 4, xs: 2 },
+          p: { md: 2, xs: 1 },
+          height: { md: 300, xs: 150 },
           overflow: 'auto'
         }}
         ref={logRef}

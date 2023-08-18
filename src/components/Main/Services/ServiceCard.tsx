@@ -60,8 +60,8 @@ export default function ServiceCard({
         sx={{
           cursor: 'pointer',
           willChange: 'transform, opacity',
-          height: 300,
-          width: 450,
+          height: { md: 300, xs: 200 },
+          width: { md: 450, xs: '100%' },
           margin: '0 auto'
         }}
         onClick={() => setFilpped(flipped => !flipped)}
@@ -73,19 +73,24 @@ export default function ServiceCard({
             transform: transform as unknown as string
           }}
           sx={{
-            position: 'absolute'
+            position: 'absolute',
+            height: { md: 300, xs: 200 },
+            width: { md: 450, xs: '95%' }
           }}
         >
           <CardMedia
             image={imageUrl}
-            sx={{ height: 220, width: 450 }}
+            sx={{
+              height: { md: 220, xs: 145 },
+              width: { md: 450, xs: '100%' }
+            }}
             component='img'
           />
           <CardContent
             sx={{
               display: 'flex',
               alignItems: 'center',
-              height: 40
+              height: { md: 40, xs: 20 }
             }}
           >
             {isLoading ? (
@@ -95,7 +100,11 @@ export default function ServiceCard({
                 sx={{ mr: 1.5, color: isRunning ? 'green' : 'red' }}
               />
             )}
-            <Typography variant='h3' fontSize={40} fontFamily='Kanit'>
+            <Typography
+              variant='h3'
+              fontSize={{ md: 40, xs: 30 }}
+              fontFamily='Kanit'
+            >
               {name.toUpperCase()}
             </Typography>
           </CardContent>
@@ -109,15 +118,15 @@ export default function ServiceCard({
             rotateX: '180deg'
           }}
           sx={{
-            height: 300,
-            width: 450,
+            height: { md: 300, xs: 200 },
+            width: { md: 450, xs: '95%' },
             position: 'absolute',
             bgcolor: '#f8f8f8'
           }}
         >
           <CardContent
             sx={{
-              mt: 5,
+              mt: { md: 5, xs: 3 },
               display: 'flex',
               alignContent: 'center',
               justifyContent: 'center',
@@ -125,10 +134,16 @@ export default function ServiceCard({
               flexDirection: 'column'
             }}
           >
-            <Typography variant='h3' align='center' fontFamily='Kanit'>
+            <Typography
+              variant='h3'
+              fontSize={{ md: 48, xs: 36 }}
+              align='center'
+              fontFamily='Kanit'
+            >
               {name.toUpperCase()}
             </Typography>
             <Typography
+              fontSize={{ md: 34, xs: 28 }}
               variant='h4'
               align='center'
               fontFamily='Kanit'
@@ -141,7 +156,12 @@ export default function ServiceCard({
                   <CircularProgress
                     size='2rem'
                     color='warning'
-                    sx={{ mr: 1.5 }}
+                    sx={{ mr: 1.5, display: { md: 'block', xs: 'none' } }}
+                  />
+                  <CircularProgress
+                    size='1.4rem'
+                    color='warning'
+                    sx={{ mr: 1.4, display: { xs: 'block', md: 'none' } }}
                   />
                   LOADING
                 </>
@@ -154,9 +174,14 @@ export default function ServiceCard({
                 </>
               )}
             </Typography>
-            <Box mt={4}>
+            <Box mt={{ md: 4, xs: 1.5 }}>
               {isRunning && visitBtn && (
-                <Link component='a' href={visitUrl} target='_blank' sx={{display: flipped ? 'inline' : 'none'}}>
+                <Link
+                  component='a'
+                  href={visitUrl}
+                  target='_blank'
+                  sx={{ display: flipped ? 'inline' : 'none' }}
+                >
                   <Button
                     variant='outlined'
                     size='large'
@@ -168,7 +193,10 @@ export default function ServiceCard({
                 </Link>
               )}
               {detailBtn && (
-                <RouterLink to={detailUrl as string} style={{display: flipped ? 'inline' : 'none'}}>
+                <RouterLink
+                  to={detailUrl as string}
+                  style={{ display: flipped ? 'inline' : 'none' }}
+                >
                   <Button
                     variant='outlined'
                     size='large'

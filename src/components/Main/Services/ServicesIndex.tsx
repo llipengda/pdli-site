@@ -37,9 +37,9 @@ export default function ServicesIndex() {
 
   useEffect(getServicesStatus, [])
   return (
-    <Grid container maxWidth='lg' rowGap={4} mx={2}>
+    <Grid container maxWidth='lg' rowGap={{md:4,xs:1}} mx={2} my={{md:0,xs:2}}>
       {Object.keys(serviceStatus).map(service => (
-        <Grid item md={6} key={service}>
+        <Grid item md={6} xs={12} key={service}>
           <ServiceCard
             //@ts-ignore
             status={serviceStatus[service]}
