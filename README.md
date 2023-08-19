@@ -1,5 +1,7 @@
 # PDLI.SITE
 
+## :wave: Introduction 
+
 This is my personal website / profile project built using Vite + React + Typescript + MUI
 
 ## :fire: Features
@@ -52,3 +54,7 @@ Then open http://localhost:5173 in your browser.
 ## :gear: Backend
 
 [PDLISiteAPI](https://github.com/llipengda/pdli-site-api) - The backend of this project
+
+## :page_facing_up: License
+
+[MIT](LICENSE)
