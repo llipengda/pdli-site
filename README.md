@@ -1,27 +1,54 @@
-# React + TypeScript + Vite
+# PDLI.SITE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal website / profile project built using Vite + React + Typescript + MUI
 
-Currently, two official plugins are available:
+## :fire: Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Introduction of myself
+- Quickly check the status of various services running on my server, and view log & send commands to my Minecraft server
+- Comments system using **giscus** powered by GitHub Discussions
 
-## Expanding the ESLint configuration
+## :star2: Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- /home
+![home](screenshorts/home.png)
 
-- Configure the top-level `parserOptions` property like this:
+- /services
+![services](screenshorts/services.png)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+- /services/minecraft
+![minecraft](screenshorts/minecraft.png)
+  
+## :hammer_and_wrench: Built With
+
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [React Spring](https://react-spring.dev/)
+- [MUI](https://mui.com/)
+- [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr)
+- [tsparticles](https://particles.js.org/)
+- [giscus](https://giscus.app/)
+
+## :rocket: Getting Started
+
+**Requirements:**
+- Node.js 14+
+  
+**Run locally:**
+```bash
+npm install
+npm run dev
 ```
+Then open http://localhost:5173 in your browser.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## :memo: TODOS
+
+- [ ] Add dark mode
+- [ ] Add Chinese language support
+- [ ] Add code highlight for log
+- [ ] ... more features
+
+## :gear: Backend
+
+[PDLISiteAPI](https://github.com/llipengda/pdli-site-api) - The backend of this project
