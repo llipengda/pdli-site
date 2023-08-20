@@ -29,7 +29,7 @@ export default function Login({
       setErr("Password can't be empty")
       return
     }
-    axios.post(`${server}/login?password=${inputPassword}`).then(
+    axios.post(`${server}/login`,inputPassword).then(
       response => {
         localStorage.setItem('token', response.data)
         onSuccessfulLogin()
