@@ -5,8 +5,7 @@ import {
   DialogContentText,
   TextField,
   DialogActions,
-  Button,
-  Typography
+  Button
 } from '@mui/material'
 import React, { useState } from 'react'
 import axios, { AxiosError } from 'axios'
@@ -29,7 +28,7 @@ export default function Login({
       setErr("Password can't be empty")
       return
     }
-    axios.post(`${server}/login`,inputPassword).then(
+    axios.post(`${server}/login`, inputPassword).then(
       response => {
         localStorage.setItem('token', response.data)
         onSuccessfulLogin()
