@@ -28,20 +28,24 @@ export default function Login({
       setErr("Password can't be empty")
       return
     }
-    axios.post(`${server}/login`, inputPassword).then(
-      response => {
-        localStorage.setItem('token', response.data)
-        onSuccessfulLogin()
-        onClose()
-      },
-      error => {
-        if (error instanceof AxiosError && error.response?.status == 401) {
-          setErr('The password is incorrect, please try again!')
-        } else {
-          console.log(error)
+    axios
+      .post(`${server}/login`, inputPassword, {
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(
+        response => {
+          localStorage.setItem('token', response.data)
+          onSuccessfulLogin()
+          onClose()
+        },
+        error => {
+          if (error instanceof AxiosError && error.response?.status == 401) {
+            setErr('The password is incorrect, please try again!')
+          } else {
+            console.log(error)
+          }
         }
-      }
-    )
+      )
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
