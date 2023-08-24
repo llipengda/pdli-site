@@ -28,6 +28,7 @@ export default function DetailService({ name }: { name: string }) {
   const [login, setLogin] = useState(false)
   const [snackbar, setSnackbar] = useState(false)
   const [snackbarText, setSnackbarText] = useState('')
+  const [stopBtnDisabled, setStopBtnDisabled] = useState(false)
 
   const connection = new SignalR.HubConnectionBuilder()
     .withUrl(hub)
@@ -113,7 +114,7 @@ export default function DetailService({ name }: { name: string }) {
   }
 
   const handleStop = () => {
-    console.log(localStorage.getItem('token'))
+    setStopBtnDisabled(true)
     axios
       .post(`${server}/${name.replace('-', '')}/Stop`, null, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -134,7 +135,10 @@ export default function DetailService({ name }: { name: string }) {
           }
         }
       )
-      .finally(() => getStatus())
+      .finally(() => {
+        getStatus()
+        setStopBtnDisabled(false)
+      })
   }
 
   const handlePostCmd = (cmd: string) => () => {
@@ -248,6 +252,7 @@ export default function DetailService({ name }: { name: string }) {
                 color='error'
                 sx={{ ml: 1.5 }}
                 onClick={handleStop}
+                disabled={stopBtnDisabled}
               >
                 STOP
               </Button>
@@ -280,7 +285,7 @@ export default function DetailService({ name }: { name: string }) {
           variant='body2'
           fontFamily='Menlo, Monaco, Consolas, "Ubuntu Mono", "DejaVu Sans Mono", "Liberation Mono", "Fira Mono", "微软雅黑", monospace'
           whiteSpace='pre-line'
-          sx={{overflowWrap: 'anywhere'}}
+          sx={{ overflowWrap: 'anywhere' }}
         >
           {log}
         </Typography>
