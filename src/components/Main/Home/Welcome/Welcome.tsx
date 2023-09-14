@@ -53,7 +53,7 @@ const Welcome: React.FC = () => {
           <Typography
             variant='h6'
             sx={{
-              color: 'rgba(0,0,0,0.54)',
+              color: 'text.secondary',
               mt: {
                 xs: 0.5,
                 md: 3

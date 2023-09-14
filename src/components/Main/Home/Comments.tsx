@@ -1,7 +1,9 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
 import Giscus from '@giscus/react'
 
 export default function Comments() {
+  const isDark = useTheme().palette.mode === 'dark'
+
   return (
     <Box
       id='comments'
@@ -41,7 +43,7 @@ export default function Comments() {
             reactionsEnabled='1'
             emitMetadata='0'
             inputPosition='top'
-            theme='preferred_color_scheme'
+            theme={isDark ? 'dark' : 'light'}
             lang='en'
             loading='lazy'
           />

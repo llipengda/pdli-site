@@ -63,7 +63,7 @@ const DailyQuote: React.FC = () => {
         display='flex'
         justifyContent='space-between'
         alignItems='center'
-        mb={{ md:1.5, xs: 0.5 }}
+        mb={{ md: 1.5, xs: 0.5 }}
         borderBottom='1px solid #dedede97'
       >
         <Typography
@@ -77,24 +77,24 @@ const DailyQuote: React.FC = () => {
         <Box display={{ xs: 'flex', md: 'none' }}>
           <Tooltip title='refresh'>
             <IconButton onClick={fetchQuote} aria-label='refresh quote'>
-              <RefreshIcon sx={{ width: 20 }} />
+              <RefreshIcon sx={{ width: 20, color: 'text.primary' }} />
             </IconButton>
           </Tooltip>
           <Tooltip title='copy'>
             <IconButton onClick={copyQuote} aria-label='copy quote'>
-              <FileCopyIcon sx={{ width: 20 }} />
+              <FileCopyIcon sx={{ width: 20, color: 'text.primary' }} />
             </IconButton>
           </Tooltip>
         </Box>
         <Box display={{ xs: 'none', md: 'flex' }}>
           <Tooltip title='refresh' arrow placement='top'>
             <IconButton onClick={fetchQuote} aria-label='refresh quote'>
-              <RefreshIcon />
+              <RefreshIcon sx={{ color: 'text.primary' }} />
             </IconButton>
           </Tooltip>
           <Tooltip title='copy' arrow placement='top'>
             <IconButton onClick={copyQuote} aria-label='copy quote'>
-              <FileCopyIcon />
+              <FileCopyIcon sx={{ color: 'text.primary' }} />
             </IconButton>
           </Tooltip>
         </Box>

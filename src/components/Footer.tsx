@@ -1,19 +1,21 @@
-import { Box, Link, Typography } from '@mui/material'
+import { Box, Link, Typography, useTheme } from '@mui/material'
 
 export default function Footer() {
+  const isDark = useTheme().palette.mode === 'dark'
+
   return (
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        bgcolor: '#ffffff',
-        borderTop: '1px solid #dedede87',
+        bgcolor: isDark ? 'background.default' : '#ffffff90',
+        borderBottom: isDark ? '1px solid #68686868' : '1px solid #dedede87',
         minHeight: { md: '60px', xs: '30px' }
       }}
     >
       <Typography
-        sx={{ color: 'black' }}
+        sx={{ color: 'text.primary' }}
         align='center'
         fontSize={{ md: 16, xs: 12 }}
       >

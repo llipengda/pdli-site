@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Link, Tooltip } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import { Link, Tooltip, useTheme } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -9,16 +10,23 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import EmailIcon from '@mui/icons-material/Email'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
+import Brightness4Icon from '@mui/icons-material/Brightness4'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
 import { Avatar } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import PageMenu from './PageMenu'
 import LinkMenu from './LinkMenu'
 import pages from './pages'
+import { colorModeContext } from '../../App'
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = React.useState(false)
 
   const navigate = useNavigate()
+
+  const theme = useTheme()
+  const isDark = theme.palette.mode === 'dark'
+
+  const colorMode = React.useContext(colorModeContext)
 
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -42,14 +50,13 @@ const Header: React.FC = () => {
       id='header'
       elevation={0}
       sx={{
-        bgcolor: `rgba(255,255,255,${scrolled ? '0.9' : '1'})`,
+        bgcolor: isDark ? 'background.default' : '#ffffff90',
         backdropFilter: 'blur(10px)',
         position: 'sticky',
-        borderBottom: '1px solid #dedede87',
-        transition: 'all 1.5s ease-out',
+        borderBottom: isDark ? '1px solid #68686868' : '1px solid #dedede87',
+        transition: 'all 0.5s ease-out',
         minHeight: 60,
         top: 0,
-        mb: { xs: '10px', md: 0 }
       }}
     >
       <Container maxWidth='xl'>
@@ -122,19 +129,39 @@ const Header: React.FC = () => {
             flexDirection='row'
             columnGap={1}
           >
+            <Tooltip title={`Switch to ${isDark ? 'light' : 'dark'} mode`}>
+              <IconButton
+                onClick={colorMode.toggleColorMode}
+                disableRipple
+                sx={{
+                  color: 'text.primary',
+                  border: '1px solid',
+                  borderColor: isDark ? '#3e3e3e' : '#dae2ed',
+                  borderRadius: '10px',
+                  padding: 1,
+                  '&:hover': {
+                    borderColor: isDark ? '#505050' : '#C7D0DD',
+                    bgcolor: isDark ? '#303030' : '#F3F6F9'
+                  }
+                }}
+              >
+                {isDark ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+            </Tooltip>
             <Tooltip title='GitHub repository'>
               <IconButton
                 href='https://github.com/llipengda/pdli-site'
                 target='_blank'
                 disableRipple
                 sx={{
+                  color: 'text.primary',
                   border: '1px solid',
-                  borderColor: '#dae2ed',
+                  borderColor: isDark ? '#3e3e3e' : '#dae2ed',
                   borderRadius: '10px',
                   padding: 1,
                   '&:hover': {
-                    borderColor: '#C7D0DD',
-                    bgcolor: '#F3F6F9'
+                    borderColor: isDark ? '#505050' : '#C7D0DD',
+                    bgcolor: isDark ? '#303030' : '#F3F6F9'
                   }
                 }}
               >
@@ -146,13 +173,14 @@ const Header: React.FC = () => {
                 href='mailto:lipengda2@outlook.com'
                 disableRipple
                 sx={{
+                  color: 'text.primary',
                   border: '1px solid',
-                  borderColor: '#dae2ed',
+                  borderColor: isDark ? '#3e3e3e' : '#dae2ed',
                   borderRadius: '10px',
                   padding: 1,
                   '&:hover': {
-                    borderColor: '#C7D0DD',
-                    bgcolor: '#F3F6F9'
+                    borderColor: isDark ? '#505050' : '#C7D0DD',
+                    bgcolor: isDark ? '#303030' : '#F3F6F9'
                   }
                 }}
               >
@@ -166,4 +194,3 @@ const Header: React.FC = () => {
   )
 }
 export default Header
-
