@@ -46,7 +46,7 @@ Then open http://localhost:5173 in your browser.
 
 ## :memo: TODOS
 
-- [ ] Add dark mode
+- [x] Add dark mode
 - [ ] Add Chinese language support
 - [ ] Add code highlight for log
 - [ ] ... more features
