@@ -8,7 +8,8 @@ import {
   CircularProgress,
   Link,
   Tooltip,
-  Typography
+  Typography,
+  useTheme
 } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
 import { animated, useSpring } from 'react-spring'
@@ -45,6 +46,8 @@ export default function ServiceCard({
 
   const isRunning = status.toLowerCase() === 'running'
   const isLoading = status.toLowerCase() === 'loading'
+
+  const isDark = useTheme().palette.mode === 'dark'
 
   return (
     <Tooltip
@@ -121,7 +124,7 @@ export default function ServiceCard({
             height: { md: 300, xs: 200 },
             width: { md: 450, xs: '95%' },
             position: 'absolute',
-            bgcolor: '#f8f8f8'
+            bgcolor: isDark ? 'background.paper' : '#f8f8f8'
           }}
         >
           <CardContent

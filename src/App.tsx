@@ -58,7 +58,6 @@ const App: React.FC = () => {
     <Box display='flex' flexDirection='column'>
       <colorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
-          <CssBaseline />
           <Header />
           <Main />
           <Footer />
