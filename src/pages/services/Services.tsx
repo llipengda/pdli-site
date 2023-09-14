@@ -1,8 +1,11 @@
 import { Box, Paper, Typography } from '@mui/material'
 import RouterMenu from '../../components/Main/Services/RouterMenu'
 import { Outlet } from 'react-router-dom'
+import { useTheme } from '@mui/material'
 
 export default function Services() {
+  const isDark = useTheme().palette.mode === 'dark'
+
   return (
     <Box
       id='services'
@@ -30,10 +33,13 @@ export default function Services() {
             p: { md: 5, xs: 0 },
             height: { md: 620, xs: 'none' },
             width: { md: 'none', xs: '100%' },
-            bgcolor: '#f3f6f9',
+            bgcolor: isDark ? 'background.paper' : '#f3f6f9',
             display: 'flex',
             flexDirection: 'column',
-            borderRight: { md: '1px solid #dededede', xs: 'none' }
+            borderRight: {
+              md: isDark ? '1px solid #3f3f3f' : '1px solid #dededede',
+              xs: 'none'
+            }
           }}
         >
           <Box mx={{ md: 0, xs: 3 }} my={{ md: 0, xs: 1 }}>
@@ -63,7 +69,7 @@ export default function Services() {
             maxWidth: { md: 'none', xs: '100%' },
             display: 'flex',
             alignItems: 'center',
-            bgcolor: '#f3f6f9'
+            bgcolor: isDark ? 'background.paper' : '#f3f6f9'
           }}
         >
           <Outlet />

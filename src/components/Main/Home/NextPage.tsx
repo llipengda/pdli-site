@@ -26,6 +26,7 @@ export default function NextPage({ nextId }: { nextId: string }) {
   return (
     <DoubleArrow
       sx={{
+        color: 'text.primary',
         position: 'absolute',
         bottom: { md: 30, xs: 20 },
         alignSelf: 'center',

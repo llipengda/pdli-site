@@ -301,7 +301,7 @@ export default function DetailService({ name }: { name: string }) {
             margin='normal'
             size='small'
             disabled={!isRunning}
-            sx={{ bgcolor: 'white' }}
+            sx={{ bgcolor: 'background.paper' }}
             onChange={event => setInputCmd(event.target.value)}
             onKeyDown={handleKeyDown}
           />
