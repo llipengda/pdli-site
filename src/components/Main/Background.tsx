@@ -10,7 +10,7 @@ const Background: React.FC = () => {
   }
 
   return (
-    <Particles 
+    <Particles
       init={init}
       options={particlesOptions as RecursivePartial<IOptions>}
     />

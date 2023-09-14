@@ -98,7 +98,7 @@ export default function FlexTest({ show }: { show: boolean }) {
                 <Grid item lg={1} xs={1}>
                   <PsychologyAlt sx={{ width: { lg: 24, xs: 15, md: 20 } }} />
                 </Grid>
-                <Grid item lg={11} xs={11} sx={{ color: '#3f3f3f5f' }}>
+                <Grid item lg={11} xs={11} sx={{ color: 'text.disabled' }}>
                   <Typography
                     variant='h5'
                     display={{ lg: 'flex', xs: 'none' }}

@@ -34,6 +34,7 @@ export default function PageMenu() {
         aria-controls='menu-appbar'
         aria-haspopup='true'
         onClick={handleOpenNavMenu}
+        sx={{color:'text.primary'}}
       >
         <MenuIcon />
       </IconButton>
