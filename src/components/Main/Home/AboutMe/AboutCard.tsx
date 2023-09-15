@@ -78,7 +78,7 @@ export default function FlexTest({ show }: { show: boolean }) {
                   <Typography
                     variant='h5'
                     fontSize={{ lg: 24, xs: 16 }}
-                    pl={{ lg: 0, xs: 1,md: 0  }}
+                    pl={{ lg: 0, xs: 1, md: 0 }}
                   >
                     Interested in computer science and programing
                   </Typography>
@@ -90,7 +90,7 @@ export default function FlexTest({ show }: { show: boolean }) {
                   <Typography
                     variant='h5'
                     fontSize={{ lg: 24, xs: 16 }}
-                    pl={{ lg: 0, xs: 1,md: 0  }}
+                    pl={{ lg: 0, xs: 1, md: 0 }}
                   >
                     Why not enjoy video games?
                   </Typography>
@@ -103,7 +103,7 @@ export default function FlexTest({ show }: { show: boolean }) {
                     variant='h5'
                     display={{ lg: 'flex', xs: 'none' }}
                     fontSize={{ lg: 24 }}
-                    pl={{ lg: 0, xs: 1,md: 0  }}
+                    pl={{ lg: 0, xs: 1, md: 0 }}
                   >
                     <s>
                       Crazy about Quantum Thinking
@@ -115,7 +115,7 @@ export default function FlexTest({ show }: { show: boolean }) {
                     variant='h5'
                     display={{ lg: 'none', xs: 'flex' }}
                     fontSize={{ xs: 16 }}
-                    pl={{ lg: 0, xs: 1 ,md: 0 }}
+                    pl={{ lg: 0, xs: 1, md: 0 }}
                   >
                     <s>
                       Crazy about Quantum Thinking
@@ -132,7 +132,7 @@ export default function FlexTest({ show }: { show: boolean }) {
                 <CardMedia
                   image={selfie}
                   sx={{
-                    height: {lg:300,md:180}
+                    height: { lg: 300, md: 180 }
                   }}
                 />
               </Card>
@@ -141,7 +141,7 @@ export default function FlexTest({ show }: { show: boolean }) {
                 sx={{
                   color: '#939393',
                   mt: 1,
-                  fontSize:{md:12,lg:16}
+                  fontSize: { md: 12, lg: 16 }
                 }}
               >
                 <s>A SELFIE</s>

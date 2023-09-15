@@ -1,8 +1,8 @@
-import React from "react"
-import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material"
+import React from 'react'
+import { Box, IconButton, Menu, MenuItem, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-import { useNavigate } from "react-router-dom"
-import pages from "./pages"
+import { useNavigate } from 'react-router-dom'
+import pages from './pages'
 
 export default function PageMenu() {
   const [anchorElNav, setAnchorElNav] = React.useState<HTMLElement | null>(null)
@@ -34,7 +34,7 @@ export default function PageMenu() {
         aria-controls='menu-appbar'
         aria-haspopup='true'
         onClick={handleOpenNavMenu}
-        sx={{color:'text.primary'}}
+        sx={{ color: 'text.primary' }}
       >
         <MenuIcon />
       </IconButton>

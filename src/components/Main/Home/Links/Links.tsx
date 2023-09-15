@@ -11,7 +11,7 @@ export default function Links() {
       position='relative'
       sx={{
         width: '100%',
-        minHeight: 'calc(100vh - 70px)',
+        minHeight: 'calc(100vh - 70px)'
       }}
     >
       <Box

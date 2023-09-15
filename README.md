@@ -1,6 +1,6 @@
 # PDLI.SITE
 
-## :wave: Introduction 
+## :wave: Introduction
 
 This is my personal website / profile project built using Vite + React + Typescript + MUI
 
@@ -35,14 +35,17 @@ This is my personal website / profile project built using Vite + React + Typescr
 ## :rocket: Getting Started
 
 **Requirements:**
+
 - Node.js 14+
   
 **Run locally:**
+
 ```bash
 npm install
 npm run dev
 ```
-Then open http://localhost:5173 in your browser.
+
+Then open <http://localhost:5173> in your browser.
 
 ## :memo: TODOS
 
