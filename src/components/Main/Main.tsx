@@ -7,10 +7,15 @@ const Background = lazy(() => import('./Background'))
 
 const Main: React.FC = () => {
   return (
-    <Box sx={{bgcolor: 'background.default', transition: 'background-color 0.5s ease-out'}}>
+    <Box
+      sx={{
+        bgcolor: 'background.default',
+        transition: 'background-color 0.5s ease-out'
+      }}
+    >
       <Container maxWidth='xl' sx={{ display: 'flex' }}>
         <Suspense fallback={<Loading />}>
-        <Background/>
+          <Background />
           {useRoutes(routes)}
         </Suspense>
       </Container>

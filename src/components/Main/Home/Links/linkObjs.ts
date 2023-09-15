@@ -20,7 +20,8 @@ export default [
   {
     picName: starrail,
     title: 'Honkai Star Rail',
-    description: 'An upcoming action role-playing game, set in the vast universe of Honkai featuring sci-fi themes and stylish battles',
+    description:
+      'An upcoming action role-playing game, set in the vast universe of Honkai featuring sci-fi themes and stylish battles',
     link: 'https://hsr.hoyoverse.com/en-us/'
   }
 ]

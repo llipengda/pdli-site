@@ -56,7 +56,7 @@ const Header: React.FC = () => {
         borderBottom: isDark ? '1px solid #68686868' : '1px solid #dedede87',
         transition: 'all 0.5s ease-out',
         minHeight: 60,
-        top: 0,
+        top: 0
       }}
     >
       <Container maxWidth='xl'>
