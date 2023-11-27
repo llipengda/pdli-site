@@ -1,7 +1,6 @@
 import React, { createContext, useMemo, useState } from 'react'
 import {
   Box,
-  CssBaseline,
   ThemeProvider,
   useMediaQuery,
   useTheme
@@ -49,7 +48,7 @@ const App: React.FC = () => {
         }
       }
     }),
-    [mode]
+    [defaultTheme, mode]
   )
 
   console.log(theme)

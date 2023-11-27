@@ -17,10 +17,11 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': [
-      'warn',
+      'off',
       { allowConstantExport: true }
     ],
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'warning'
+    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/ban-ts-comment': 'off'
   }
 }
